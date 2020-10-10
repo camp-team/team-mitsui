@@ -1,0 +1,43 @@
+@import '~@angular/material/theming';
+
+:host {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #fff;
+}
+
+.header {
+  &__inner {
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  &__title {
+    margin: 0;
+    font-size: 18px;
+  }
+  &__logo-link {
+    color: map-get($mat-cyan, 500);
+    text-decoration: none;
+  }
+  &__login {
+    cursor: pointer;
+    display: inline-block;
+    border: none;
+    background-color: map-get($mat-cyan, 500);
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1;
+    padding: 0.75em 1.25em;
+    border-radius: 0.25em;
+    box-shadow: 0 3px 6px -2px rgba(100, 110, 167, 0.2);
+    transition: opacity 0.4s;
+    &:hover {
+      opacity: 0.6;
+    }
+  }
+}
