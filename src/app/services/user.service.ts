@@ -26,4 +26,8 @@ export class UserService {
     };
     await this.db.doc(`users/${uid}`).set(userData);
   }
+
+  getOwnerUserEvents(uid: string) {
+    return this.db.doc(`users/${uid}/ownerEvents/`).valueChanges();
+  }
 }
