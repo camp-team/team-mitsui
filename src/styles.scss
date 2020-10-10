@@ -46,6 +46,14 @@ body {
   color: $color-font;
 }
 
+button {
+  &:hover,
+  &:focus,
+  &:active {
+    outline: none;
+  }
+}
+
 .container {
   max-width: 1200px;
   margin: 0 auto;
