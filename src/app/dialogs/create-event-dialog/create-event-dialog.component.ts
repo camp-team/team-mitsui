@@ -1,6 +1,9 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { FormBuilder, Validators } from '@angular/forms';
+import { AuthService } from 'src/app/services/auth.service';
+import { EventService } from 'src/app/services/event.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-create-event-dialog',
@@ -37,12 +40,17 @@ export class CreateEventDialogComponent implements OnInit {
   constructor(
     @Inject(MAT_DIALOG_DATA)
     private dialogRef: MatDialogRef<CreateEventDialogComponent>,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    public authService: AuthService,
+    public userService: UserService,
+    private eventService: EventService
   ) {}
 
   ngOnInit(): void {}
 
-  createEvent() {
-    console.log(this.form.value);
+  createEvent(uid: string) {
+    return this.eventService.createEvent(uid, this.form.value).then(() => {
+      this.dialogRef.close();
+    });
   }
 }

@@ -1,6 +1,8 @@
 export interface Event {
+  eventId: string;
   title: string;
-  descritption?: string;
+  description?: string;
   eventDate: any;
   eventOpenTime: string;
+  ownerUserId: string;
 }

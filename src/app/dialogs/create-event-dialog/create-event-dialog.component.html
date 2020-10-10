@@ -58,6 +58,13 @@
   </form>
 </div>
 <div mat-dialog-actions class="dialog__actions">
-  <button mat-flat-button color="primary" (click)="createEvent()">作成</button>
+  <button
+    mat-flat-button
+    color="primary"
+    *ngIf="authService.afUser$ | async as user"
+    (click)="createEvent(user.uid)"
+  >
+    作成
+  </button>
   <button mat-stroked-button matDialogClose>キャンセル</button>
 </div>
