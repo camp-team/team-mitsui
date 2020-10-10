@@ -13,6 +13,11 @@ const routes: Routes = [
         (m) => m.EventDetailModule
       ),
   },
+  {
+    path: 'welcome',
+    loadChildren: () =>
+      import('./welcome/welcome.module').then((m) => m.WelcomeModule),
+  },
 ];
 
 @NgModule({
