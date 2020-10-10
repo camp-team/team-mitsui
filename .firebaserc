@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "meet-2e604"
+  },
+  "targets": {
+    "meet-2e604": {
+      "hosting": {
+        "team-mitsui": [
+          "meet-2e604"
+        ]
+      }
+    }
+  }
+}
