@@ -2,7 +2,11 @@
   <div class="home-head">
     <h1 class="home-head__title">イベント一覧</h1>
     <div class="home-head__action">
-      <button mat-stroked-button color="primary">
+      <button
+        mat-stroked-button
+        color="primary"
+        (click)="openCreateEventDialog()"
+      >
         <mat-icon>add</mat-icon>イベント作成
       </button>
     </div>
