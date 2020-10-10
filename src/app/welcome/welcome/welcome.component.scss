@@ -8,6 +8,7 @@ ul {
 }
 .hero {
   display: flex;
+  justify-content: center;
   &__description {
     font-size: 50px;
     color: #7bcfd9;
@@ -23,6 +24,7 @@ ul {
 
   width: 100%;
   margin: 144px 0px;
+  padding: 300px 0px;
   &--accent {
     background-color: #e2f2fd;
 
