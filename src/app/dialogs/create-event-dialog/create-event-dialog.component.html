@@ -1,0 +1,63 @@
+<h2 matDialogTitle>イベント作成</h2>
+<div mat-dialog-content>
+  <form [formGroup]="form">
+    <mat-form-field>
+      <mat-label>イベント名</mat-label>
+      <input
+        type="text"
+        matInput
+        autocomplete="off"
+        formControlName="title"
+        [maxlength]="titleMaxLength"
+      />
+      <mat-hint align="end"
+        >{{ form.get('title').value.length }} / {{ titleMaxLength }}</mat-hint
+      >
+      <mat-error *ngIf="form.get('title').hasError('required')"
+        >イベント名を入力してください。</mat-error
+      >
+      <mat-error *ngIf="form.get('title').hasError('maxlength')"
+        >最大{{ titleMaxLength }}文字です。</mat-error
+      >
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>イベント詳細</mat-label>
+      <textarea
+        matInput
+        autocomplete="off"
+        formControlName="description"
+        [maxlength]="descriptionMaxLength"
+      ></textarea>
+      <mat-hint align="end"
+        >{{ form.get('description').value.length }} /
+        {{ descriptionMaxLength }}</mat-hint
+      >
+      <mat-error *ngIf="form.get('description').hasError('maxlength')"
+        >最大{{ descriptionMaxLength }}文字です。</mat-error
+      >
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>開催日</mat-label>
+      <input
+        matInput
+        autocomplete="off"
+        [matDatepicker]="picker"
+        formControlName="eventDate"
+      />
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field appearance="fill" class="form__field">
+      <mat-label>開始時刻</mat-label>
+      <mat-select formControlName="eventOpenTime">
+        <mat-option *ngFor="let time of timeList" [value]="time">
+          {{ time }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </form>
+</div>
+<div mat-dialog-actions class="dialog__actions">
+  <button mat-flat-button color="primary" (click)="createEvent()">作成</button>
+  <button mat-stroked-button matDialogClose>キャンセル</button>
+</div>

@@ -9,6 +9,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatTabsModule } from '@angular/material/tabs';
 import { EventCardComponent } from './event-card/event-card.component';
 import { MatCardModule } from '@angular/material/card';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [HomeComponent, EventCardComponent],
@@ -19,6 +20,7 @@ import { MatCardModule } from '@angular/material/card';
     MatIconModule,
     MatTabsModule,
     MatCardModule,
+    MatDialogModule,
   ],
 })
 export class HomeModule {}

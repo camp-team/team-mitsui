@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { CreateEventDialogComponent } from 'src/app/dialogs/create-event-dialog/create-event-dialog.component';
 
 @Component({
   selector: 'app-home',
@@ -18,7 +20,13 @@ export class HomeComponent implements OnInit {
     },
   ];
 
-  constructor() {}
+  constructor(private dialog: MatDialog) {}
 
   ngOnInit(): void {}
+
+  openCreateEventDialog() {
+    this.dialog.open(CreateEventDialogComponent, {
+      width: '560px',
+    });
+  }
 }
