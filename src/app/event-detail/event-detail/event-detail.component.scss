@@ -1,0 +1,80 @@
+@import 'variables';
+
+ul {
+  list-style: none;
+  padding: 0;
+  width: 100%;
+}
+
+.container {
+  text-align: center;
+}
+
+.header {
+  display: flex;
+  margin-top: 40px;
+  text-align: left;
+}
+
+.status-wrapper {
+  display: flex;
+}
+.status {
+  color: #fff;
+  font-size: 12px;
+  padding: 3px 11px;
+  margin-right: 4px;
+  &--host {
+    background-color: $color-main;
+  }
+  &--before {
+    background-color: #333333;
+  }
+}
+
+.title-wrapper {
+  display: flex;
+  position: relative;
+  width: 100%;
+  &__title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-right: 32px;
+  }
+  &__edit {
+    position: absolute;
+    top: -4px;
+    right: 0px;
+  }
+}
+
+.description {
+  text-align: left;
+  &__date {
+    font-size: 20px;
+  }
+  &__text {
+    font-weight: lighter;
+  }
+}
+
+.user-list {
+  border-bottom: solid 1px #0000001f;
+  padding: 16px;
+}
+
+.user {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  &__avater {
+    width: 40px;
+    height: 40px;
+    border: solid 1px;
+    border-radius: 50%;
+  }
+  &__name {
+    margin-left: 16px;
+    font-size: 16px;
+  }
+}

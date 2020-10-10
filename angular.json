@@ -120,5 +120,8 @@
       }
     }
   },
-  "defaultProject": "team-mitsui"
+  "defaultProject": "team-mitsui",
+  "cli": {
+    "analytics": false
+  }
 }
