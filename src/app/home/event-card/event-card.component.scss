@@ -1,0 +1,60 @@
+@import 'variables';
+
+.event-card {
+  &__inner {
+    display: flex;
+  }
+  &__date {
+    display: flex;
+    flex-direction: column;
+    width: 90px;
+    padding-right: 12px;
+    border-right: 1px solid #707070;
+  }
+  &__info {
+    width: calc(100% - 90px);
+    padding-left: 12px;
+  }
+}
+
+.date {
+  font-size: 14px;
+  line-height: 1.5;
+  &__year {
+    font-size: 16px;
+  }
+  &__main {
+    margin-top: 0.25em;
+    em {
+      font-size: 1.5em;
+    }
+  }
+  &__open {
+    margin-top: 0.25em;
+  }
+  &__tag {
+    margin-top: auto;
+    text-align: center;
+    background-color: #333333;
+    color: #fff;
+    font-size: 12px;
+  }
+}
+
+.info {
+  &__title {
+    margin: 0;
+    font-size: 16px;
+  }
+  &__tag {
+    display: inline-block;
+    margin-top: 8px;
+    margin-bottom: 16px;
+    margin-right: auto;
+    background-color: #333333;
+    color: #fff;
+    font-size: 12px;
+    line-height: 1;
+    padding: 0.25em 1em;
+  }
+}
