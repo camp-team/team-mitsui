@@ -42,6 +42,7 @@ export class AuthService {
             .createUser(this.uid, googleProfile)
             .then(() => {
               this.succeededLogin();
+              this.router.navigateByUrl('/');
             })
             .catch((error) => {
               this.failedLogin(error);

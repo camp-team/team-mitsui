@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs';
+import { Event } from 'src/app/interfaces/event';
+import { EventService } from 'src/app/services/event.service';
 
 @Component({
   selector: 'app-event-detail',
@@ -6,24 +10,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./event-detail.component.scss'],
 })
 export class EventDetailComponent implements OnInit {
-  tabIndex: number;
-  tab = 1;
+  event$: Observable<Event>;
 
-  readonly tabs = [1, 2, 3];
+  constructor(
+    private route: ActivatedRoute,
+    private eventSearvice: EventService
+  ) {}
 
-  constructor() {}
-
-  ngOnInit(): void {}
-
-  editPost() {
-    console.log('edit');
-  }
-
-  deletePost() {
-    console.log('delete');
-  }
-
-  clickTab(i: number) {
-    this.tab = i;
+  ngOnInit(): void {
+    this.route.paramMap.subscribe((params) => {
+      this.event$ = this.eventSearvice.getEventById(params.get('id'));
+    });
   }
 }
