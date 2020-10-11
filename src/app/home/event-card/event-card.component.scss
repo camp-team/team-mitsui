@@ -1,6 +1,11 @@
 @import '~@angular/material/theming';
 @import 'variables';
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
 .event-card {
   position: relative;
   cursor: pointer;

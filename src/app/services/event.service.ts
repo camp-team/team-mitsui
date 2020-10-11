@@ -27,4 +27,8 @@ export class EventService {
   getEvent(eventId: string): Observable<Event> {
     return this.db.doc<Event>(`events/${eventId}`).valueChanges();
   }
+
+  getEventById(id: string): Observable<Event> {
+    return this.db.doc<Event>(`events/${id}`).valueChanges();
+  }
 }
