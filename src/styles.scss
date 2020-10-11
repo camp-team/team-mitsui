@@ -37,10 +37,11 @@ $team-mitsui-theme: mat-light-theme(
 html,
 body {
   height: 100%;
+  box-sizing: border-box;
 }
 body {
   margin: 0;
-  padding-top: 48px;
+  padding-top: 60px;
   font-family: 'Helvetica Neue', 'BlinkMacSystemFont',
     'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
   color: $color-font;
@@ -61,6 +62,14 @@ em {
 
 .container {
   max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
+  @include md {
+    padding: 0 24px;
+  }
+}
+.container-small {
+  max-width: 800px;
   margin: 0 auto;
   padding: 0 16px;
   @include md {

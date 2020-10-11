@@ -19,15 +19,15 @@ export class UserService {
       name: googleProfile.name,
       avatarURL: googleProfile.picture,
       email: googleProfile.email,
-      ownerEventIds: [],
-      attendEventIds: [],
-      absentEventIds: [],
-      considerEventIds: [],
     };
     await this.db.doc(`users/${uid}`).set(userData);
   }
 
-  getOwnerUserEvents(uid: string) {
+  addOwnerEventId(uid: string, id: string) {
+    this.db.doc(`users/${uid}/ownerEvents/${id}`).set({ id });
+  }
+
+  getOwnerEventIds(uid: string) {
     return this.db.doc(`users/${uid}/ownerEvents/`).valueChanges();
   }
 }
