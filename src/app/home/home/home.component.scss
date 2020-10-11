@@ -1,5 +1,14 @@
+@import 'variables';
+
+:host {
+  box-sizing: border-box;
+  display: block;
+  background-color: $color-base;
+  min-height: calc(100% - 54px);
+  padding: 40px 0;
+}
+
 .home-head {
-  padding: 40px 0 20px;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
