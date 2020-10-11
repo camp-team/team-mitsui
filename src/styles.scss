@@ -44,7 +44,7 @@ body {
   font-family: 'Helvetica Neue', 'BlinkMacSystemFont',
     'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
   color: $color-font;
-  overflow-x: hidden;
+  // overflow-x: hidden;
 }
 
 button {
@@ -57,6 +57,14 @@ button {
 
 em {
   font-style: normal;
+}
+
+img {
+  max-width: 100%;
+}
+
+ul {
+  list-style: none;
 }
 
 .container {
