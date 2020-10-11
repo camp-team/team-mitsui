@@ -8,6 +8,9 @@ import { Event } from 'src/app/interfaces/event';
 })
 export class EventCardComponent implements OnInit {
   @Input() event: Event;
+  @Input() type: string;
+
+  today = new Date(new Date().toDateString());
 
   constructor() {}
 

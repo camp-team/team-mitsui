@@ -15,9 +15,11 @@
     <mat-tab-group>
       <mat-tab label="主催イベント">
         <div class="event-list">
-          <div *ngFor="let event of events$ | async as Event">
-            {{ event.title }}
-          </div>
+          <app-event-card
+            *ngFor="let event of events$ | async as Event"
+            [event]="event"
+            type="owner"
+          ></app-event-card>
         </div>
       </mat-tab>
       <mat-tab label="招待イベント"> </mat-tab>

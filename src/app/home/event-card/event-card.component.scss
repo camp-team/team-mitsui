@@ -1,19 +1,29 @@
+@import '~@angular/material/theming';
 @import 'variables';
 
 .event-card {
+  position: relative;
+  cursor: pointer;
   &__inner {
     display: flex;
   }
   &__date {
     display: flex;
     flex-direction: column;
-    width: 90px;
+    width: 110px;
     padding-right: 12px;
     border-right: 1px solid #707070;
   }
   &__info {
-    width: calc(100% - 90px);
+    width: calc(100% - 110px);
     padding-left: 12px;
+  }
+  &__link {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
   }
 }
 
@@ -31,13 +41,24 @@
   }
   &__open {
     margin-top: 0.25em;
+    margin-bottom: 8px;
   }
   &__tag {
     margin-top: auto;
     text-align: center;
     background-color: #333333;
+    border-radius: 2px;
     color: #fff;
     font-size: 12px;
+    &.future {
+      background-color: map-get($mat-cyan, 500);
+    }
+    &.today {
+      background-color: map-get($mat-orange, 500);
+    }
+    &.past {
+      background-color: #aaa;
+    }
   }
 }
 
@@ -51,10 +72,14 @@
     margin-top: 8px;
     margin-bottom: 16px;
     margin-right: auto;
-    background-color: #333333;
+    background-color: map-get($mat-cyan, 500);
+    border-radius: 2px;
     color: #fff;
     font-size: 12px;
     line-height: 1;
     padding: 0.25em 1em;
+  }
+  &__description {
+    margin: 0;
   }
 }
