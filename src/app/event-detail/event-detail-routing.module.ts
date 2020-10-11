@@ -8,6 +8,10 @@ const routes: Routes = [
     pathMatch: 'full',
     component: EventDetailComponent,
   },
+  {
+    path: ':id',
+    component: EventDetailComponent,
+  },
 ];
 
 @NgModule({

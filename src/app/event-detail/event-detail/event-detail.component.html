@@ -1,105 +1,107 @@
-<div class="container">
-  <div class="header">
-    <ul>
-      <li>
-        <div class="status-wrapper">
-          <div class="status status--host">主催イベント</div>
-          <div class="status status--before">開催前</div>
-        </div>
-      </li>
-      <li class="title-wrapper">
-        <div class="title-wrapper__title">イベントタイトルが入ります</div>
-        <button
-          mat-icon-button
-          [matMenuTriggerFor]="menuRef"
-          class="title-wrapper__edit"
-        >
-          <mat-icon>more_vert</mat-icon>
-        </button>
-        <mat-menu #menuRef="matMenu">
-          <button mat-menu-item (click)="editPost()">
-            <mat-icon>edit</mat-icon>
-            <span>編集する</span>
+<ng-container *ngIf="event$ | async as event">
+  <div class="container">
+    <div class="header">
+      <ul>
+        <li>
+          <div class="status-wrapper">
+            <div class="status status--host">主催イベント</div>
+            <div class="status status--before">開催前</div>
+          </div>
+        </li>
+        <li class="title-wrapper">
+          <div class="title-wrapper__title">{{ event.title }}</div>
+          <button
+            mat-icon-button
+            [matMenuTriggerFor]="menuRef"
+            class="title-wrapper__edit"
+          >
+            <mat-icon>more_vert</mat-icon>
           </button>
-          <button mat-menu-item (click)="deletePost()">
-            <mat-icon>delete</mat-icon>
-            <span>削除</span>
-          </button>
-        </mat-menu>
-      </li>
-    </ul>
+          <mat-menu #menuRef="matMenu">
+            <button mat-menu-item>
+              <mat-icon>edit</mat-icon>
+              <span>編集する</span>
+            </button>
+            <button mat-menu-item>
+              <mat-icon>delete</mat-icon>
+              <span>削除</span>
+            </button>
+          </mat-menu>
+        </li>
+      </ul>
+    </div>
+    <div class="description">
+      <div class="description__date">2020/10/17(土) 10:00 開始</div>
+      <p class="description__text">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate
+        reprehenderit beatae officia exercitationem laboriosam provident culpa,
+        nostrum.
+      </p>
+    </div>
+    <button mat-raised-button color="primary" class="action-button">
+      参加を締め切る
+    </button>
+    <mat-tab-group mat-align-tabs="center">
+      <mat-tab label="参加: 3">
+        <div class="user-list">
+          <div class="user">
+            <div class="user__avater"></div>
+            <div class="user__name">xxxxxx</div>
+          </div>
+        </div>
+        <div class="user-list">
+          <div class="user">
+            <div class="user__avater"></div>
+            <div class="user__name">xxxxxx</div>
+          </div>
+        </div>
+        <div class="user-list">
+          <div class="user">
+            <div class="user__avater"></div>
+            <div class="user__name">xxxxxx</div>
+          </div>
+        </div>
+      </mat-tab>
+      <mat-tab label="不参加: 3">
+        <div class="user-list">
+          <div class="user">
+            <div class="user__avater"></div>
+            <div class="user__name">xxxxxx</div>
+          </div>
+        </div>
+        <div class="user-list">
+          <div class="user">
+            <div class="user__avater"></div>
+            <div class="user__name">xxxxxx</div>
+          </div>
+        </div>
+        <div class="user-list">
+          <div class="user">
+            <div class="user__avater"></div>
+            <div class="user__name">xxxxxx</div>
+          </div>
+        </div></mat-tab
+      >
+      <mat-tab label="検討中: 3">
+        <div class="user-list">
+          <div class="user">
+            <div class="user__avater"></div>
+            <div class="user__name">xxxxxx</div>
+          </div>
+        </div>
+        <div class="user-list">
+          <div class="user">
+            <div class="user__avater"></div>
+            <div class="user__name">xxxxxx</div>
+          </div>
+        </div>
+        <div class="user-list">
+          <div class="user">
+            <div class="user__avater"></div>
+            <div class="user__name">xxxxxx</div>
+          </div>
+        </div></mat-tab
+      >
+    </mat-tab-group>
   </div>
-  <div class="description">
-    <div class="description__date">2020/10/17(土) 10:00 開始</div>
-    <p class="description__text">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate
-      reprehenderit beatae officia exercitationem laboriosam provident culpa,
-      nostrum.
-    </p>
-  </div>
-  <button mat-raised-button color="primary" class="action-button">
-    参加を締め切る
-  </button>
-  <mat-tab-group mat-align-tabs="center">
-    <mat-tab label="参加: 3">
-      <div class="user-list">
-        <div class="user">
-          <div class="user__avater"></div>
-          <div class="user__name">xxxxxx</div>
-        </div>
-      </div>
-      <div class="user-list">
-        <div class="user">
-          <div class="user__avater"></div>
-          <div class="user__name">xxxxxx</div>
-        </div>
-      </div>
-      <div class="user-list">
-        <div class="user">
-          <div class="user__avater"></div>
-          <div class="user__name">xxxxxx</div>
-        </div>
-      </div>
-    </mat-tab>
-    <mat-tab label="不参加: 3">
-      <div class="user-list">
-        <div class="user">
-          <div class="user__avater"></div>
-          <div class="user__name">xxxxxx</div>
-        </div>
-      </div>
-      <div class="user-list">
-        <div class="user">
-          <div class="user__avater"></div>
-          <div class="user__name">xxxxxx</div>
-        </div>
-      </div>
-      <div class="user-list">
-        <div class="user">
-          <div class="user__avater"></div>
-          <div class="user__name">xxxxxx</div>
-        </div>
-      </div></mat-tab
-    >
-    <mat-tab label="検討中: 3">
-      <div class="user-list">
-        <div class="user">
-          <div class="user__avater"></div>
-          <div class="user__name">xxxxxx</div>
-        </div>
-      </div>
-      <div class="user-list">
-        <div class="user">
-          <div class="user__avater"></div>
-          <div class="user__name">xxxxxx</div>
-        </div>
-      </div>
-      <div class="user-list">
-        <div class="user">
-          <div class="user__avater"></div>
-          <div class="user__name">xxxxxx</div>
-        </div>
-      </div></mat-tab
-    >
-  </mat-tab-group>
-</div>
+</ng-container>
