@@ -21,7 +21,7 @@ export class EventDetailComponent implements OnInit {
   userName: string;
   email: any;
   private title = 'イベント参加者通知';
-  private msg = `ありがとうございます。${this.userName}さんの参加を確認しました。`;
+  private msg = `ありがとうございます。参加を確認しました。`;
 
   constructor(
     private route: ActivatedRoute,
