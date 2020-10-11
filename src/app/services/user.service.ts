@@ -29,9 +29,9 @@ export class UserService {
     this.db.doc(`users/${uid}/ownerEvents/${id}`).set({ id });
   }
 
-  getOwnerEventIds(uid: string): Observable<EventId[]> {
+  getOwnerEvents(uid: string): Observable<Event[]> {
     return this.db
-      .collection<EventId>(`users/${uid}/ownerEvents/`)
+      .collection<Event>('events', (ref) => ref.where('ownerUserId', '==', uid))
       .valueChanges();
   }
   getOwnerEvent(uid: string): Observable<Event[]> {

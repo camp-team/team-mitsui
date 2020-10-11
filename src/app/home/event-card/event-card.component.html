@@ -1,18 +1,41 @@
 <mat-card class="event-card">
-  <div class="event-card__inner">
-    <div class="event-card__date">
-      <div class="date__year">2020</div>
-      <div class="date__main"><em>10/17</em>(土)</div>
-      <div class="date__open">10:00 開始</div>
-      <div class="date__tag">開催前</div>
+  <a routerLink="/event-detail/{{ event.eventId }}">
+    <div class="event-card__inner">
+      <div class="event-card__date">
+        <div class="date__year">
+          {{ event.eventDate.toDate() | date: 'yyyy' }}
+        </div>
+        <div class="date__main">
+          <em>{{ event.eventDate.toDate() | date: 'MM/dd' }}</em> ({{
+            event.eventDate.toDate() | date: 'E'
+          }})
+        </div>
+        <div class="date__open">{{ event.eventOpenTime }} 開始</div>
+        <div class="date__tag future" *ngIf="event.eventDate.toDate() > today">
+          開催前
+        </div>
+        <div
+          class="date__tag today"
+          *ngIf="
+            !(event.eventDate.toDate() > today) &&
+            !(event.eventDate.toDate() < today)
+          "
+        >
+          本日開催
+        </div>
+        <div class="date__tag past" *ngIf="event.eventDate.toDate() < today">
+          終了
+        </div>
+      </div>
+      <div class="event-card__info">
+        <h2 class="info__title">
+          {{ event.title }}
+        </h2>
+        <div class="info__tag" *ngIf="type === 'owner'">主催イベント</div>
+        <p class="info__description">
+          {{ event.description }}
+        </p>
+      </div>
     </div>
-    <div class="event-card__info">
-      <h2 class="info__title">
-        {{ event.title }}
-      </h2>
-      <div class="info__tag">主催イベント</div>
-      <div class="info__owner">主催者：xxx</div>
-      <div class="info__count">参加者： 3人</div>
-    </div>
-  </div>
+  </a>
 </mat-card>

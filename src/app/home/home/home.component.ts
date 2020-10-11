@@ -15,12 +15,8 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-  user$ = this.authService.afUser$;
-  ownerEventId$: Observable<EventId[]> = this.user$.pipe(
-    switchMap((user) => this.userService.getOwnerEventIds(user.uid))
-  );
+  events$;
   uid: string;
-  events$: Observable<Event[]>;
 
   constructor(
     private dialog: MatDialog,
@@ -34,7 +30,7 @@ export class HomeComponent implements OnInit {
       .pipe(take(1))
       .toPromise()
       .then((user) => {
-        this.events$ = this.userService.getOwnerEvent(user.uid);
+        this.events$ = this.userService.getOwnerEvents(user.uid);
       });
   }
 
