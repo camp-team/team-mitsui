@@ -1,9 +1,11 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { FormBuilder, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { AuthService } from 'src/app/services/auth.service';
 import { EventService } from 'src/app/services/event.service';
 import { UserService } from 'src/app/services/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-event-dialog',
@@ -27,6 +29,8 @@ export class CreateEventDialogComponent implements OnInit {
     '20:00',
   ];
 
+  isClose = false;
+
   form = this.fb.group({
     title: [
       '',
@@ -41,6 +45,8 @@ export class CreateEventDialogComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA)
     private dialogRef: MatDialogRef<CreateEventDialogComponent>,
     private fb: FormBuilder,
+    private router: Router,
+    private snackBar: MatSnackBar,
     public authService: AuthService,
     public userService: UserService,
     private eventService: EventService
@@ -50,7 +56,13 @@ export class CreateEventDialogComponent implements OnInit {
 
   createEvent(uid: string) {
     return this.eventService.createEvent(uid, this.form.value).then(() => {
-      this.dialogRef.close();
+      this.isClose = true;
+      this.snackBar
+        .open('イベントを作成しました！', 'イベントページへ')
+        .onAction()
+        .subscribe(() => {
+          this.router.navigateByUrl(`/`);
+        });
     });
   }
 }

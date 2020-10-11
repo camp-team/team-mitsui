@@ -63,6 +63,7 @@
     color="primary"
     *ngIf="authService.afUser$ | async as user"
     (click)="createEvent(user.uid)"
+    [mat-dialog-close]="isClose"
   >
     作成
   </button>

@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container-small">
   <div class="home-head">
     <h1 class="home-head__title">イベント一覧</h1>
     <div class="home-head__action">
@@ -16,8 +16,9 @@
       <mat-tab label="主催イベント">
         <div class="event-list">
           <app-event-card
-            *ngFor="let event of eventList"
-            [eventTitle]="event.title"
+            *ngFor="let event of events$ | async as Event"
+            [event]="event"
+            type="owner"
           ></app-event-card>
         </div>
       </mat-tab>
