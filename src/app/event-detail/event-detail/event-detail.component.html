@@ -40,66 +40,24 @@
   <button mat-raised-button color="primary" class="action-button">
     参加を締め切る
   </button>
-  <mat-tab-group mat-align-tabs="center">
-    <mat-tab label="参加: 3">
-      <div class="user-list">
-        <div class="user">
-          <div class="user__avater"></div>
-          <div class="user__name">xxxxxx</div>
-        </div>
-      </div>
-      <div class="user-list">
-        <div class="user">
-          <div class="user__avater"></div>
-          <div class="user__name">xxxxxx</div>
-        </div>
-      </div>
-      <div class="user-list">
-        <div class="user">
-          <div class="user__avater"></div>
-          <div class="user__name">xxxxxx</div>
-        </div>
-      </div>
-    </mat-tab>
-    <mat-tab label="不参加: 3">
-      <div class="user-list">
-        <div class="user">
-          <div class="user__avater"></div>
-          <div class="user__name">xxxxxx</div>
-        </div>
-      </div>
-      <div class="user-list">
-        <div class="user">
-          <div class="user__avater"></div>
-          <div class="user__name">xxxxxx</div>
-        </div>
-      </div>
-      <div class="user-list">
-        <div class="user">
-          <div class="user__avater"></div>
-          <div class="user__name">xxxxxx</div>
-        </div>
-      </div></mat-tab
-    >
-    <mat-tab label="検討中: 3">
-      <div class="user-list">
-        <div class="user">
-          <div class="user__avater"></div>
-          <div class="user__name">xxxxxx</div>
-        </div>
-      </div>
-      <div class="user-list">
-        <div class="user">
-          <div class="user__avater"></div>
-          <div class="user__name">xxxxxx</div>
-        </div>
-      </div>
-      <div class="user-list">
-        <div class="user">
-          <div class="user__avater"></div>
-          <div class="user__name">xxxxxx</div>
-        </div>
-      </div></mat-tab
-    >
-  </mat-tab-group>
+  <button
+    mat-raised-button
+    color="primary"
+    class="action-button"
+    (click)="sendMail()"
+  >
+    参加する
+  </button>
+  <div class="user-list">
+    <div class="user">
+      <div class="user__avater"></div>
+      <div class="user__name">xxxxxx</div>
+    </div>
+  </div>
+  <div class="user-list">
+    <div class="user">
+      <div class="user__avater"></div>
+      <div class="user__name">xxxxxx</div>
+    </div>
+  </div>
 </div>

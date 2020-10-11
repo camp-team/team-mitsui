@@ -1,4 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
+import { SendMailService } from 'src/app/services/send-mail.service';
+import { MailInfo } from 'src/app/interfaces/mail-info';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { take } from 'rxjs/operators';
+import { Observable } from 'rxjs';
+import { User } from 'firebase';
 
 @Component({
   selector: 'app-event-detail',
@@ -6,14 +13,24 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./event-detail.component.scss'],
 })
 export class EventDetailComponent implements OnInit {
-  tabIndex: number;
-  tab = 1;
+  afUser$: Observable<User> = this.afAuth.user;
+  userName: string;
+  email: any;
+  private title = 'イベント参加者通知';
+  private msg = `${this.userName}さん `;
 
-  readonly tabs = [1, 2, 3];
+  constructor(
+    private sendMailService: SendMailService,
+    private afAuth: AngularFireAuth
+  ) {}
 
-  constructor() {}
-
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.afUser$.subscribe((user) => {
+      this.email = user?.email;
+      this.userName = user?.displayName;
+      // console.log(this.email);
+    });
+  }
 
   editPost() {
     console.log('edit');
@@ -23,7 +40,12 @@ export class EventDetailComponent implements OnInit {
     console.log('delete');
   }
 
-  clickTab(i: number) {
-    this.tab = i;
+  sendMail() {
+    const info = {
+      to: this.email,
+      title: this.title,
+      msg: this.msg,
+    };
+    this.sendMailService.sendMail(info);
   }
 }
