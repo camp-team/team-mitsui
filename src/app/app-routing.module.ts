@@ -16,8 +16,6 @@ const routes: Routes = [
       import('./event-detail/event-detail.module').then(
         (m) => m.EventDetailModule
       ),
-    canLoad: [AuthGuard],
-    canActivate: [AuthGuard],
   },
   {
     path: 'welcome',
