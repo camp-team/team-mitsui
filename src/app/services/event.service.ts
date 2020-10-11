@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { Observable } from 'rxjs';
 import { Event } from '../interfaces/event';
+import { EventId } from '../interfaces/event-id';
 import { UserService } from './user.service';
 
 @Injectable({
@@ -22,7 +24,7 @@ export class EventService {
     await this.userService.addOwnerEventId(uid, id);
   }
 
-  getEvent(id: string) {
-    this.db.doc(`events/${id}`).valueChanges();
+  getEvent(eventId: string): Observable<Event> {
+    return this.db.doc<Event>(`events/${eventId}`).valueChanges();
   }
 }
