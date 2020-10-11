@@ -4,7 +4,9 @@
       <ul>
         <li>
           <div class="status-wrapper">
-            <div class="status status--host">主催イベント</div>
+            <div class="status status--host" *ngIf="event.ownerUserId === uid">
+              主催イベント
+            </div>
             <div class="status status--before">開催前</div>
           </div>
         </li>
@@ -31,24 +33,34 @@
       </ul>
     </div>
     <div class="description">
-      <div class="description__date">2020/10/17(土) 10:00 開始</div>
+      <div class="description__date">
+        {{ event.eventDate.toDate() | date: 'yyyy/MM/dd' }}
+        {{ event.eventOpenTime }} 開始
+      </div>
       <p class="description__text">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate
-        reprehenderit beatae officia exercitationem laboriosam provident culpa,
-        nostrum.
+        {{ event.description }}
       </p>
     </div>
+
     <button
       mat-raised-button
       color="primary"
       class="action-button"
-      (click)="sendMail()"
+      *ngIf="event.ownerUserId === uid; else join"
     >
-      参加する
-    </button>
-    <!-- <button mat-raised-button color="primary" class="action-button">
       参加を締め切る
-    </button> -->
+    </button>
+    <ng-template #join>
+      <button
+        mat-raised-button
+        color="primary"
+        class="action-button"
+        (click)="sendMail(uid, event.eventId)"
+      >
+        参加する
+      </button>
+    </ng-template>
+
     <mat-tab-group mat-align-tabs="center">
       <mat-tab label="参加: 3">
         <div class="user-list">
