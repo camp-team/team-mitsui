@@ -34,21 +34,7 @@ export class HomeComponent implements OnInit {
       .pipe(take(1))
       .toPromise()
       .then((user) => {
-        this.userService
-          .getOwnerEventIds(user.uid)
-          .pipe(take(1))
-          .toPromise()
-          .then((ids: EventId[]) => {
-            const eventsObservables$: Observable<Event>[] = ids.map(
-              (eventId: EventId) => {
-                return this.eventService.getEvent(eventId.id);
-              }
-            );
-            const events: Observable<Event[]> = combineLatest(
-              eventsObservables$
-            );
-            this.events$ = events;
-          });
+        this.events$ = this.userService.getOwnerEvent(user.uid);
       });
   }
 

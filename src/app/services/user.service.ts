@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
+import { Event } from '../interfaces/event';
 import { EventId } from '../interfaces/event-id';
 import { User } from '../interfaces/user';
 
@@ -31,6 +32,11 @@ export class UserService {
   getOwnerEventIds(uid: string): Observable<EventId[]> {
     return this.db
       .collection<EventId>(`users/${uid}/ownerEvents/`)
+      .valueChanges();
+  }
+  getOwnerEvent(uid: string): Observable<Event[]> {
+    return this.db
+      .collection<Event>('events', (ref) => ref.where('ownerUserId', '==', uid))
       .valueChanges();
   }
 }
