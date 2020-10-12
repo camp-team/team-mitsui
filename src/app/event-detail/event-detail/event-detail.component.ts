@@ -54,10 +54,5 @@ export class EventDetailComponent implements OnInit {
       msg: this.msg,
     };
     this.sendMailService.sendMail(info);
-    this.clickToJoin(uid, eventId);
-  }
-
-  clickToJoin(uid: string, eventId: string) {
-    this.eventSearvice.joinEvent(uid, eventId);
   }
 }
